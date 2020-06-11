@@ -1,10 +1,10 @@
-export const videoDatas = [
+export const videos = [
     {
         id:1,
         title: 'fake1',
         description: 'fake data1',
         views:124,
-        videoFile:'https://archive.org/details/BigBuckBunny_124',
+        videoFile:'https://www.youtube.com/watch?v=H-ysMmnHf3Q',
         creator: {
             id: 'kim11',
             name: 'kim',
@@ -16,7 +16,7 @@ export const videoDatas = [
         title: 'fake2',
         description: 'fake data2',
         views:24,
-        videoFile:'https://archive.org/details/BigBuckBunny_124',
+        videoFile:'https://www.youtube.com/watch?v=H-ysMmnHf3Q',
         creator: {
             id: 'lee2211',
             name: 'lee',
@@ -28,7 +28,7 @@ export const videoDatas = [
         title: 'fake3',
         description: 'fake data3',
         views:64,
-        videoFile:'https://archive.org/details/BigBuckBunny_124',
+        videoFile:'https://www.youtube.com/watch?v=H-ysMmnHf3Q',
         creator: {
             id: 'park33',
             name: 'park',
@@ -40,7 +40,7 @@ export const videoDatas = [
         title: 'fake4',
         description: 'fake data4',
         views:54,
-        videoFile:'https://archive.org/details/BigBuckBunny_124',
+        videoFile:'https://www.youtube.com/watch?v=H-ysMmnHf3Q',
         creator: {
             id: 'han44',
             name: 'han',

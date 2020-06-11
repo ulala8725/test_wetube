@@ -1,7 +1,7 @@
 import express from 'express';
 import routes from '../routes';
 import {
-    join,
+    getJoin, postJoin,
     login,
     logout,
     users,
@@ -12,7 +12,9 @@ import {
 
 const userRouter = express.Router();
 
-userRouter.get(routes.join, join);
+userRouter.get(routes.join, getJoin);
+userRouter.post(routes.join, postJoin);
+
 userRouter.get(routes.login, login);
 userRouter.get(routes.logout, logout);
 userRouter.get(routes.users, users);
