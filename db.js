@@ -1,4 +1,4 @@
-export const videos = [
+export const videoDatas = [
     {
         id:1,
         title: 'fake1',

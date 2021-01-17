@@ -1,8 +1,8 @@
 import express from 'express';
 import routes from '../routes';
 import {
-    getJoin, postJoin,
-    login,
+    //getJoin, postJoin,
+    //getLogin, postLogin,
     logout,
     users,
     userDetail,
@@ -10,16 +10,17 @@ import {
     changePassword
 } from '../controllers/userControllers';
 
+
 const userRouter = express.Router();
 
-userRouter.get(routes.join, getJoin);
-userRouter.post(routes.join, postJoin);
+//userRouter.get(routes.join, getJoin);     //→globalRouter
+//userRouter.post(routes.join, postJoin);   //→globalRouter
+//userRouter.get(routes.login, getLogin);   //→globalRouter
+//userRouter.post(routes.login, postLogin); //→globalRouter
 
-userRouter.get(routes.login, login);
-userRouter.get(routes.logout, logout);
-userRouter.get(routes.users, users);
 userRouter.get(routes.editProfile, editProfile);
+userRouter.get(routes.logout, logout);
 userRouter.get(routes.changePassword, changePassword);
-userRouter.get(routes.userDetail, userDetail);
+userRouter.get(routes.userDetail(), userDetail);
 
 export default userRouter;

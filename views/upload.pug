@@ -2,8 +2,8 @@ extends layouts/main
 
 block content
     .form-container
-        form(action=routes.upload, method="post")
-            label(for="videoFile") Video File
+        form(action=routes.videos+routes.upload, method="post")
+            label(for="videoFile") Video Upload
             input(type="file", id="videoFile", name="videoFile")
             input(type="text", placeholder="Title", name="title")
             textarea(placeholder="Description", name="description")
