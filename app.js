@@ -14,6 +14,10 @@ const app = express();
 // call middleware before routes
 app.use(helmet());
 app.set('view engine', 'pug'); 
+
+// express.static() : built-in middelware function to give file from directory
+// no checking controller or view
+app.use("/uploads", express.static("uploads"));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded( {extended: true} ));
