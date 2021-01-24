@@ -19,10 +19,12 @@ const VideoSchema = new mongoose.Schema({
         type: Date,
         default: Date.now // mongoose's function for returning current date
     },
-    comments: {
-        type: mongoose.Schema.Types.ObjectId, // every Schema has ObjectId
-        ref: "Comment"                        // model's name
-    }
+    comments: [   
+        {
+            type: mongoose.Schema.Types.ObjectId, // every Schema has ObjectId
+            ref: "Comment"                        // model's name
+        }
+    ]
 });
 
 // Model: create database(name, schema)
