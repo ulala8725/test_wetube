@@ -30,3 +30,6 @@ package-lock.json
 
 #uploads folder
 uploads
+
+#static folder
+static
