@@ -11,5 +11,22 @@ export const localsMiddleware =  (req, res, next) => {
     next(); // go to the next function
 }
 
+// public function (you can go to these page whenever you login or not)
+export const onlyPublic = (req, res, next) => {
+    if (req.user) {
+        res.redirect(routes.home);
+    } else {
+        next();
+    }
+};
+
+export const onlyPrivate= (req, res, next) => {
+    if (req.user) {
+        next();
+    } else {
+        res.redirect(routes.home);
+    }
+};
+
 // single: only one file
 export const uploadVideo = multerVideo.single('videoFile');

@@ -4,23 +4,18 @@ import {
     //getJoin, postJoin,
     //getLogin, postLogin,
     logout,
-    users,
     userDetail,
     editProfile,
     changePassword
 } from '../controllers/userControllers';
 
+import { onlyPrivate } from "../middlewares";
 
 const userRouter = express.Router();
 
-//userRouter.get(routes.join, getJoin);     //→globalRouter
-//userRouter.post(routes.join, postJoin);   //→globalRouter
-//userRouter.get(routes.login, getLogin);   //→globalRouter
-//userRouter.post(routes.login, postLogin); //→globalRouter
-
-userRouter.get(routes.editProfile, editProfile);
+userRouter.get(routes.editProfile, onlyPrivate, editProfile);
 userRouter.get(routes.logout, logout);
-userRouter.get(routes.changePassword, changePassword);
+userRouter.get(routes.changePassword, onlyPrivate, changePassword);
 userRouter.get(routes.userDetail(), userDetail);
 
 export default userRouter;

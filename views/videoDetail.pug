@@ -4,8 +4,9 @@ block content
     .video-detail__container
         .video__player
             video(src=`/${video.fileUrl}`) // ${because it is url, not real file}
-        .vidoe__info
-            a(href=routes.editVideo(video.id)) Edit Video
+        .video__info
+            a(href=routes.editVideo(video.id))
+                button Edit Video
             h5.video__title=video.title
             span.video__view=video.view
             p.video__description=video.description

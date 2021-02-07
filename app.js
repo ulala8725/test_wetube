@@ -4,9 +4,9 @@ import helmet from 'helmet';              // security
 import bodyParser from 'body-parser';     // data from user
 import cookieParser from 'cookie-parser'; // cookie
 import passport from 'passport';          // user authentication
-//import mongoose from 'mongoose';
+import mongoose from 'mongoose';
 import session from 'express-session';    // session
-//import MongoStore from 'connect-mongo';
+import MongoStore from 'connect-mongo';
 import { localsMiddleware } from './middlewares';
 
 import routes from './routes';
@@ -17,7 +17,7 @@ import './passport';
 
 const app = express();
 
-//const CookieStore = MongoStore(session);
+const CookieStore = MongoStore(session);
 
 // call middleware before routes
 app.use(helmet());
@@ -34,8 +34,8 @@ app.use(morgan('dev'));
 app.use(session({
     secret: process.env.COOKIE_SECRET,  // encrypt sessionId with random string
     resave: true,                       
-    saveUninitialized: false           // implement login session
-    //,store: new CookieStore({ mongooseConnection: mongoose.connection })
+    saveUninitialized: false,           // implement login session
+    store: new CookieStore({ mongooseConnection: mongoose.connection })
 }));
 app.use(passport.initialize());
 app.use(passport.session());
