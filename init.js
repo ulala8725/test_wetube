@@ -1,6 +1,8 @@
+import dotenv from "dotenv";
+import passportLocalMongoose from "passport-local-mongoose";
 import './db';
 import app from "./app";
-import dotenv from "dotenv";
+
 dotenv.config();
 
 import "./models/Video";

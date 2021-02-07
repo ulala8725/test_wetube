@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config(); // call info from .env file
 
+
 mongoose.connect(
     process.env.MONGO_URL,
     {

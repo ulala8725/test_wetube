@@ -9,8 +9,8 @@ const UserSchema = new mongoose.Schema({
     githubId: Number
 });
 
-const model = mongoose.model("User", UserSchema);
-
 UserSchema.plugin(passportLocalMongoose, {usernameField: "email"});
+
+const model = mongoose.model("User", UserSchema);
 
 export default model;
