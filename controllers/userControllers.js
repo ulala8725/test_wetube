@@ -39,7 +39,7 @@ export const githubLogin = passport.authenticate('github');
 
 // _=accessToken, __=refreshToken
 export const githubLoginCallback = async (_, __, profile, cb) => {
-    // login←name=∴null, login+@github.com←email=∴null in profile
+    // login←name=∴null, login+@github.com←email=∴null in my profile
     const { _json: { id, avatarUrl, login } } = profile; 
     const email = login.concat('@github.com');
     try {
@@ -69,6 +69,10 @@ export const logout = (req, res) => {
     req.logout();
     res.redirect(routes.home);
 };
+
+export const getMe = (req, res) => {
+    res.render('userDetail', { pageTitle:'User Detail', user: req.user });
+}
 
 export const userDetail = (req, res) => res.render('userDetail', { pageTitle:'User Detail'});
 export const editProfile = (req, res) => res.render('editProfile', { pageTitle:'Edit Profile'});

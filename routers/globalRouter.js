@@ -8,7 +8,8 @@ import { getJoin,
     postLogin,
     logout,
     githubLogin, 
-    postGithubLogin } from '../controllers/userControllers';
+    postGithubLogin,
+    getMe } from '../controllers/userControllers';
 import { onlyPublic, onlyPrivate } from "../middlewares";
     
 const globalRouter = express.Router();
@@ -19,6 +20,8 @@ globalRouter.get(
     passport.authenticate('github', { failureRedirect: '/login'}),
     postGithubLogin
 );
+
+globalRouter.get(routes.me, getMe);
 
 globalRouter.get(routes.join, onlyPublic, getJoin);
 globalRouter.post(routes.join, onlyPublic, postJoin, postLogin);

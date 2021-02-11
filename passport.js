@@ -16,5 +16,15 @@ passport.use(new GithubStrategy({
     )
 );
 
-passport.serializeUser(User.serializeUser());       // put the user id into cookie/session
-passport.deserializeUser(User.deserializeUser());   // check the user id included in cookie/session 
+//passport.serializeUser(User.serializeUser());       // put the user id into cookie/session
+//passport.deserializeUser(User.deserializeUser());   // check the user id included in cookie/session 
+
+passport.serializeUser((user, done) => {
+    done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+    User.findById(id, (err, user) => {
+      done(err, user);
+    });
+});
