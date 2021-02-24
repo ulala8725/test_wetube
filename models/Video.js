@@ -11,7 +11,7 @@ const VideoSchema = new mongoose.Schema({
         required: "Title is required"
     },
     description: String,
-    Views: {
+    views: {
         type: Number,
         default: 0
     },
@@ -24,7 +24,11 @@ const VideoSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId, // every Schema has ObjectId
             ref: "Comment"                        // model's name
         }
-    ]
+    ],
+    creator: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    }
 });
 
 // Model: create database(name, schema)

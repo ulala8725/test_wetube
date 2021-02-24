@@ -40,11 +40,12 @@ export const postUpload = async(req, res) => {
     const newVideo = await Video.create({
         fileUrl: path,
         title,
-        description
+        description,
+        creator: req.user.id
     })
-    console.log(newVideo)
+    req.user.videos.push(newVideo.id);
+    req.user.save();
     res.redirect(routes.videoDetail(newVideo.id))
-    //res.render('upload', { pageTitle : 'Upload' });
 }
 
 export const getEditVideo = async(req, res) => {
@@ -80,7 +81,8 @@ export const videoDetail = async(req, res) => {
     
     try {
         // mongoDB: SELECT * FROM Vidoe WHERE ID = {id}
-        const video = await Video.findById(id);
+        // populate():get the object which is ObjectId-type Object
+        const video = await Video.findById(id).populate('creator');
         res.render('videoDetail', { pageTitle : video.title, video }); // video:video
     } catch(error) {
         console.log(error);
